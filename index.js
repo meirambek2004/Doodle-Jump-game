@@ -180,8 +180,11 @@ function scroll() {
 function yourScore() {
   const scoreElement = document.querySelector("#gameover p:first-child");
   scoreElement.textContent = `Your score: ${score}`;
-  const highScoreElement = document.querySelector("#gameover p:nth-child(2)");
-  highScoreElement.textContent = `High Score: ${highScore}`;
+  const yourHighScore = document.querySelector("#gameover p:nth-child(2)");
+  yourHighScore.textContent = `High Score: ${highScore}`;
+
+  const currentScore = document.querySelector("#current-score");
+  currentScore.textContent = `Score: ${score}`;
 }
 
 function createFlyMonster(x, y) {
