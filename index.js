@@ -9,6 +9,7 @@ let up = -5;
 let gameActive = false;
 let activeMonsters = 0;
 let score = 0;
+let highScore = localStorage.getItem("highScore");
 
 playButton.addEventListener("click", () => {
   gameActive = true;
@@ -164,6 +165,12 @@ function scroll() {
       score += 10;
       yourScore();
 
+      if (score > highScore) {
+        highScore = score;
+        localStorage.setItem("highScore", highScore);
+        yourScore();
+      }
+
       if (Math.random() < 0.2) {
         createFlyMonster(newX, newY - 50);
       }
@@ -173,6 +180,8 @@ function scroll() {
 function yourScore() {
   const scoreElement = document.querySelector("#gameover p:first-child");
   scoreElement.textContent = `Your score: ${score}`;
+  const highScoreElement = document.querySelector("#gameover p:nth-child(2)");
+  highScoreElement.textContent = `High Score: ${highScore}`;
 }
 
 function createFlyMonster(x, y) {
