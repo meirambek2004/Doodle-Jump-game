@@ -53,6 +53,7 @@
   bottom: 300px;
   display: none;
   font-size: 40px;
+  z-index: 2;
 }
 .repeat-icon {
   background: none;
